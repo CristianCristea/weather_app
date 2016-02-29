@@ -1,0 +1,65 @@
+// ==========================================================================
+// = Global Variables
+// ==========================================================================
+
+// Color Scheme
+// =============
+
+// Descriptive colors:
+$alabaster          : #fafafa;
+$gray               : #7f7f7f;
+$tundora            : #4a4a4a;
+$white              : #fff;
+$scooter            : #36acd0;
+$black              : #000;
+$nevada             : #626f7e;
+$dolphin            : #675a85;
+$fountain_blue      : #52bab4;
+$golden_grass       : #e0ab26;
+$matisse            : #2472aa;
+
+// Base Sizes
+// ==========
+
+// Base font size in used in _mixins.scss
+// @type number
+ 
+
+$base-font-size               : 16;
+
+
+// Base line-height in used in _mixins.scss
+// @type number
+ 
+
+$base-line-height             : 24;
+
+
+// Font Stacks
+// ===========
+
+
+  // URL for Google Fonts import
+  // @type string
+ 
+
+$google-fonts-url          : 'https://fonts.googleapis.com/css?family=Lato:400,700,900';
+
+// Font Weights
+// ============
+
+$font-weight-light            : 300;
+$font-weight-normal           : 400;
+$font-weight-semibold         : 700;
+$font-weight-bold             : 900;
+
+// Breakpoints
+// There are no common breakpoints; examples based on the official Sass styleguide
+// ============
+
+$mobile-small                 : 240px;
+$mobile-large                 : 320px;
+$tablet-small                 : 480px;
+$tablet-large                 : 768px;
+$screen-small                 : 1024px;
+$screen-large                 : 1280px;

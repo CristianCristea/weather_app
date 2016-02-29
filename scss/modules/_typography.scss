@@ -1,0 +1,27 @@
+/*********************************************
+***** Typography
+*********************************************/
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+nav a {
+  color: $tundora;
+}
+
+%list-text {
+  font-size: 1.2em;
+  font-weight: normal;
+  line-height: 1.6;
+  color: white;
+}
+
+h2 {
+  @extend %main-heading;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}

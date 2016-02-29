@@ -1,0 +1,13 @@
+/*********************************************
+***** Header
+*********************************************/
+
+header {
+  text-align: center;
+  background-color: $alabaster;
+  
+  h1 {
+    @extend %main-heading;
+    padding-bottom: 20px;
+  }
+}  

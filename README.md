@@ -1,0 +1,1 @@
+Weather_app using OpenWeatherMap free API and typeahead.js plugin

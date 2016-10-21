@@ -2,7 +2,7 @@
 h1, h2 {
   font-weight: 700;
   color: #fff;
-  text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.6); }
+  text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2); }
 
 .clearfix:before,
 .clearfix:after {
@@ -493,20 +493,18 @@ h2 {
   color: #fff; }
 
 .tt-menu {
-  width: 400px;
+  width: 80%;
   margin: 12px 0;
   padding: 8px 0;
   left: 40px !important;
   background-color: rgba(0, 151, 207, 0.72);
   color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
   border-radius: 8px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+  @media screen and (min-width: 1024px) {
+    .tt-menu {
+      left: 0 !important;
+      width: 100%; } }
 
 .tt-suggestion {
   padding: 3px 20px;

@@ -47,20 +47,19 @@
 }
 
 .tt-menu {
-  width: 400px;
+  width: 80%;
   margin: 12px 0;
   padding: 8px 0;
   left: 40px !important;
   background-color: $pacific_blue;
   color: $white;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
+  @media screen and (min-width: $screen-small) {
+    left: 0 !important;
+    width: 100%;
+  }
 }
 
 .tt-suggestion {

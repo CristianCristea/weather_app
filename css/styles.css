@@ -524,19 +524,39 @@ h2 {
   margin: 0; }
 
 .list {
-  width: 100%;
-  margin: 0 auto;
+  width: 90%;
   list-style: none; }
   .list li {
-    margin-bottom: 20px;
+    font-size: 1.2em;
+    position: relative;
+    margin-bottom: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 8px;
     background-color: rgba(0, 151, 207, 0.72);
-    padding-top: 30px;
-    padding-bottom: 30px;
-    position: relative; }
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
     .list li img.weather-icon {
       position: absolute;
-      top: 50%;
-      margin-top: -30px; }
+      top: 0;
+      left: 50%;
+      margin-left: -30px;
+      margin-top: 5px; }
+      @media screen and (min-width: 768px) {
+        .list li img.weather-icon {
+          top: 50%;
+          left: 75%;
+          margin-left: 0;
+          margin-top: -30px; } }
+  @media screen and (min-width: 768px) {
+    .list {
+      width: 60%;
+      margin: 0 auto; } }
+  @media screen and (min-width: 1024px) {
+    .list {
+      width: 40%; } }
+  @media screen and (min-width: 1280px) {
+    .list {
+      width: 30%; } }
 
 .weather-icon {
   margin-left: 20px;

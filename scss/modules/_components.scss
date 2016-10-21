@@ -90,22 +90,46 @@
 .list {
   @extend %list-text;
 
-  width: 100%;
-  margin: 0 auto;
+  width: 90%;
   list-style: none;
 
   li {
-    margin-bottom: 20px;
-    background-color: $pacific_blue;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    font-size: 1.2em;
     position: relative;
+    margin-bottom: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 8px;
+    background-color: $pacific_blue;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
     img.weather-icon {
       position: absolute;
-      top: 50%;
-      margin-top: -30px;
+      top: 0;
+      left: 50%;
+      margin-left: -30px;
+      margin-top: 5px;
+
+      @media screen and (min-width: $tablet-large) {
+        top: 50%;
+        left: 75%;
+        margin-left: 0;
+        margin-top: -30px;
+      }
     }
+  }
+
+  @media screen and (min-width: $tablet-large) {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: $screen-small) {
+    width: 40%;
+  }
+
+  @media screen and (min-width: $screen-large) {
+    width: 30%;
   }
 }
 

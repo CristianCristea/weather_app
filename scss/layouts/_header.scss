@@ -4,10 +4,9 @@
 
 header {
   text-align: center;
-  background-color: $alabaster;
-  
+
   h1 {
-    @extend %main-heading;
-    padding-bottom: 20px;
+    margin-top: 60px;
+    margin-bottom: 100px;
   }
 }  

@@ -8,6 +8,17 @@
 
 body {
   text-align: center;
+  max-height: 100vh;
+
+  // quick and messy radial gradient - TODO - add autoprefixer to gulp, create mixin or import compass
+  background: rgba(241,231,103,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 74%, rgba(254,182,69,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(241,231,103,1)), color-stop(74%, rgba(254,182,69,1)), color-stop(100%, rgba(254,182,69,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 74%, rgba(254,182,69,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 74%, rgba(254,182,69,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 74%, rgba(254,182,69,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 74%, rgba(254,182,69,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645', GradientType=1 );
 }
 
 .border-bottom {
@@ -17,3 +28,4 @@ body {
 img {
   width: 100%;
 }
+

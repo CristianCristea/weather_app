@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <header>
-      <h1 id="home">Weather app</h1>
-    </header>
+    <div class="page-wrap">
+      <header>
+        <h1 id="home">Weather app</h1>
+      </header>
 
-    <main class="page-wrap">
-      <div id="the-basics">
-        <input type="search" id="search" class="typeahead" placeholder="Enter location" autofocus><br>
-      </div>
-      <section id="results" class="results"></section>
-    </main>
+      <main>
+        <div id="the-basics">
+          <input type="search" id="search" class="typeahead" placeholder="Enter location" autofocus><br>
+        </div>
+        <section id="results" class="results"></section>
+      </main>
+    </div> <!-- ./page-wrap -->
 
     <footer class="site-footer">
       <p><a href="http://openweathermap.org/">OpenWeatherMap API</a></p>

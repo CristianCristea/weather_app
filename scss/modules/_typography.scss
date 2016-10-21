@@ -15,8 +15,14 @@ body {
 
 h1 {
   @extend %base_heading;
-  font-size: 5em;
-  letter-spacing: -1px;
+  font-size: 4em;
+  line-height: .9;
+
+  @media screen and (min-width: $screen-small) {
+    letter-spacing: -1px;
+    font-size: 5em;
+    line-height: 1.2;
+  }
 }
 
 h2 {

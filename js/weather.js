@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
       var sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds();
       var time =  hour + ':' + min + ':' + sec ;
       return time;
-    }
+    };
 
     var dateConverter = function(UNIX_timestamp) {
       var a = new Date(UNIX_timestamp * 1000);

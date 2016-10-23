@@ -526,6 +526,7 @@ h2 {
   width: 90%;
   list-style: none; }
   .list li {
+    display: none;
     font-size: 1.2em;
     position: relative;
     margin-bottom: 30px;

@@ -1,0 +1,35 @@
+{
+  "name": "weather_app",
+  "version": "1.0.0",
+  "description": "Weather_app using OpenWeatherMap free API and typeahead.js plugin",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CristianCristea/weather_app.git"
+  },
+  "author": "Cristian Cristea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CristianCristea/weather_app/issues"
+  },
+  "homepage": "https://github.com/CristianCristea/weather_app#readme",
+  "devDependencies": {
+    "browser-sync": "^2.12.12",
+    "del": "^2.2.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "jshint": "^2.9.2",
+    "stream-combiner2": "^1.1.1",
+    "through2": "^2.0.1"
+  }
+}

@@ -92,9 +92,10 @@
 
   width: 90%;
   list-style: none;
+  perspective: 1000px;
 
   li {
-    display: none;
+    // display: none;
     font-size: 1.2em;
     position: relative;
     margin-bottom: 30px;
@@ -103,6 +104,17 @@
     border-radius: 8px;
     background-color: $pacific_blue;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+    // opacity: 0;
+
+    @for $i from 1 through 9 {
+      &:nth-child(#{$i}) {
+        animation-name: appear;
+        animation-duration: 300ms * $i;
+        timing-function: ease-in-out;
+        fill-mode: forwards;
+      }
+    }
 
     img.weather-icon {
       position: absolute;
@@ -144,3 +156,19 @@
   width: 60px;
   display: inline-block;
 }
+
+// ==========================================================================
+// $Animations
+// ==========================================================================
+
+@keyframes appear {
+  0% { 
+    opacity: 0; 
+    transform: rotateY(-90deg) translate(30px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: rotateY(0deg) translate(0px);
+  }
+}
+

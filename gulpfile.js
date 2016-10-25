@@ -98,7 +98,7 @@ gulp.task("default",
     'watcher',
     function distribution() {
       if (isprod) {
-        return gulp.src(["css/styles.min.css", "js/scripts.min.js", 'projects/*.html', 'index.html', "img/**", "vendor/", "city.list.json"], { base: './' })
+        return gulp.src(["css/styles.min.css", "js/scripts.min.js", 'projects/*.html', 'index.html', "img/**", "vendor/*.**", "city.list.json"], { base: './' })
           .pipe(gulp.dest('dist'));
       }
     })

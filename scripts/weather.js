@@ -1,10 +1,6 @@
 jQuery(document).ready(function($) {
   $('input[type="search"]').on('typeahead:selected', function(event, selection) {
-    console.log(selection);
-
-    // TODO capture the value of search input
     var cityName = selection;
-
     var openWeatherAPI = 'http://api.openweathermap.org/data/2.5/weather?appid=68d06ff44fb97dc7a6ea98b54f8374ba&callback=';
     var openWeatherOptions = {
       mode  : 'JSON',
@@ -14,14 +10,11 @@ jQuery(document).ready(function($) {
 
     var timeConverter = function(UNIX_timestamp){
       var a = new Date(UNIX_timestamp * 1000);
-      // var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      // var year = a.getFullYear();
-      // var month = months[a.getMonth()];
-      // var date = a.getDate();
       var hour = a.getHours() < 10 ? '0' + a.getHours() : a.getHours();
       var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes();
       var sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds();
       var time =  hour + ':' + min + ':' + sec ;
+
       return time;
     };
 
@@ -31,18 +24,20 @@ jQuery(document).ready(function($) {
       var year = a.getFullYear();
       var month = months[a.getMonth()];
       var date = a.getDate();
-
       var displayDate = date + ' ' + month + ' ' + year;
+
       return displayDate;
     };
 
     var displayIcon = function(iconId, description) {
       var icon = '<img src="http://openweathermap.org/img/w/' + iconId + '.png" alt="' + description + '" class="weather-icon">';
+
       return icon;
     };
 
     var displayError = function( jqxhr, textStatus, error ) {
       var err = textStatus + ", " + error;
+      
       console.log( "Request Failed: " + err );
     };
 

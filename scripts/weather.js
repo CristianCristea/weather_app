@@ -37,31 +37,46 @@ jQuery(document).ready(function($) {
       return icon;
     };
 
-    var displayError = function( jqxhr, textStatus, error ) {
-      var err = textStatus + ", " + error;
+    // display time helper
+    Handlebars.registerHelper('time', function(timestamp) {
+      timestamp = Handlebars.Utils.escapeExpression(timestamp);
+      var result = timeConverter(timestamp);
 
-      console.log( "Request Failed: " + err );
-    };
+      return new Handlebars.SafeString(result);
+    });
 
-    var displayWeather = function(response) {
-    
-      $('#results').empty(); // clear the previous search
-      var weatherHTML = '<ul class="list">';
-      weatherHTML += '<li>' + response.name + ', ' + response.sys.country + displayIcon(response.weather[0].icon, response.weather[0].description) + '</li>';
-      weatherHTML += '<li>' + response.main.temp +' °C</li>';
-      weatherHTML += '<li class="capitalize">' + response.weather[0].description +'</li>';
-      weatherHTML += '<li> Date: ' + dateConverter(response.dt) +'</li>';
-      weatherHTML += '<li> Sunrise at: ' + timeConverter(response.sys.sunrise) +'</li>';
-      weatherHTML += '<li> Sunset at: ' + timeConverter(response.sys.sunset) +'</li>';
-      weatherHTML += '<li> Pressure: ' + response.main.pressure +' hpa</li>';
-      weatherHTML += '<li> Wind speed: ' + response.wind.speed +' km/h</li>';
-      weatherHTML += '<li> Humidity: ' + response.main.humidity +' %</li>';
-      weatherHTML += '</ul>';
+    Handlebars.registerHelper('date', function(timestamp) {
+      timestamp = Handlebars.Utils.escapeExpression(timestamp);
+      var result = dateConverter(timestamp);
 
-      $('#results').html(weatherHTML);
-    };
+      return new Handlebars.SafeString(result);
+    });
 
-    $.getJSON(openWeatherAPI, openWeatherOptions, displayWeather).fail(displayError);
+    Handlebars.registerHelper('displayWeatherIcon', function(src, alt) {
+      src = Handlebars.Utils.escapeExpression(src);
+      alt = Handlebars.Utils.escapeExpression(alt);
+      var result = '<img src="http://openweathermap.org/img/w/' + src + '.png" alt="' + alt + '" class="weather-icon">';
+
+      return new Handlebars.SafeString(result);
+      // <img src="{{weather[0].icon}}.png" alt="{{weather[0].description}}" class="weather-icon">
+    });
+
+    $.ajax(openWeatherAPI, {
+      dataType: 'json',
+      data: openWeatherOptions,
+      success: function(data) {
+        console.log(data);
+        var template = $('[type="text/x-handlebars-template"]').html(),
+            templateFunction = Handlebars.compile(template),
+            htmlContent = templateFunction(data);
+
+        $('ul.list').append(htmlContent); 
+      },
+      error: function(jqxhr, textStatus, error) {
+        var err = textStatus + ", " + error;
+        console.log( "Request Failed: " + err );
+      }
+    });
   }); // end typehead:selected event
 
   // empty input elem on click for another search
@@ -69,3 +84,6 @@ jQuery(document).ready(function($) {
     $search.val('');
   });
 }); // end ready
+
+// Problem:
+  // Every new search adds cards instead of replacing the old ones

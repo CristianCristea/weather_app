@@ -16,7 +16,7 @@
         <div id="the-basics">
           <input type="search" id="search" class="typeahead" placeholder="Enter location" autofocus><br>
         </div>
-        <section id="results" class="results"></section>
+        <section id="results" class="results"><ul class="list"></ul></section>
       </main>
     </div> <!-- ./page-wrap -->
 
@@ -25,6 +25,31 @@
     </footer>
     <script src="vendor/jquery-1.11.3.js"></script>
     <script src="vendor/typeahead.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+    <script type="text/x-handlebars-template">
+      <li>
+        {{name}}
+        {{#with sys}}
+          {{country}}
+        {{/with}}
+        {{#each weather}}
+          {{displayWeatherIcon icon description}}
+        {{/each}}
+      </li>
+      <li>{{date dt}}</li>
+      {{#with main}}
+        <li>{{temp}} °C</li>    
+        <li>Humidity: {{humidity}} %</li>
+        <li>Pressure: {{pressure}} hpa</li> 
+      {{/with}}
+      {{#with wind}}
+        <li>Wind speed: {{speed}} km/h</li>
+      {{/with}}
+      {{#with sys}}
+        <li>Sunrise at: {{time sunrise}}</li>
+        <li>Sunset at: {{time sunset}}</li>
+      {{/with}}
+    </script>
     <script src="js/scripts.min.js"></script>
   </body>
 </html>

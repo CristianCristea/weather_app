@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
-  $('input[type="search"]').on('typeahead:selected', function(event, selection) {
+  var $search = $('#search');
+
+  $search.on('typeahead:selected', function(event, selection) {
     var cityName = selection;
     var openWeatherAPI = 'http://api.openweathermap.org/data/2.5/weather?appid=68d06ff44fb97dc7a6ea98b54f8374ba&callback=';
     var openWeatherOptions = {
@@ -37,7 +39,7 @@ jQuery(document).ready(function($) {
 
     var displayError = function( jqxhr, textStatus, error ) {
       var err = textStatus + ", " + error;
-      
+
       console.log( "Request Failed: " + err );
     };
 
@@ -60,5 +62,10 @@ jQuery(document).ready(function($) {
     };
 
     $.getJSON(openWeatherAPI, openWeatherOptions, displayWeather).fail(displayError);
-  }); // end typehead:selected event 
+  }); // end typehead:selected event
+
+  // empty input elem on click for another search
+  $search.on('click', function() {
+    $search.val('');
+  });
 }); // end ready

@@ -30,20 +30,12 @@ var prod = function(task) {
     return isprod ? task : noop();
 };
 
-gulp.task('test', function() {
-  return gulp.src(['scripts/**/*.js', '!scripts/vendor/**/*.js'])
-    // .pipe(cached('hint'))
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
-    .pipe(jshint.reporter('fail'));
-});
-
 // concat, minify js
 gulp.task("scripts", 
-  gulp.series('test', function scriptsInternal() {
+  gulp.series(function scriptsInternal() {
     return gulp.src([
         // 'js/jquery.js',
-        'scripts/**/*.js',
+        'scripts/*.js',
         ])
     .pipe(dev(sourcemaps.init()))
     .pipe(concat('scripts.js'))
@@ -100,7 +92,7 @@ gulp.task("default",
      'watcher',
       function distribution() {
         if (isprod) {
-          return gulp.src(["css/styles.min.css", "js/scripts.min.js", "index.html", "img/**", "vendor/*.**"], { base: './' })
+          return gulp.src(["css/styles.min.css", "index.html", "img/**", "vendor/*.*", "js/**/*.js", "city.list.json"], { base: './' })
             .pipe(gulp.dest('dist'));
         }
       })

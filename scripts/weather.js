@@ -70,7 +70,7 @@ jQuery(document).ready(function($) {
             templateFunction = Handlebars.compile(template),
             htmlContent = templateFunction(data);
 
-        $('ul.list').append(htmlContent); 
+        $('ul.list').html(htmlContent); 
       },
       error: function(jqxhr, textStatus, error) {
         var err = textStatus + ", " + error;

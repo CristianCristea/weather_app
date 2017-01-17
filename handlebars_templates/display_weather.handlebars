@@ -1,0 +1,22 @@
+<li>
+  {{name}}
+  {{#with sys}}
+    {{country}}
+  {{/with}}
+  {{#each weather}}
+    {{displayWeatherIcon icon description}}
+  {{/each}}
+</li>
+<li>{{date dt}}</li>
+{{#with main}}
+  <li>{{temp}} °C</li>    
+  <li>Humidity: {{humidity}} %</li>
+  <li>Pressure: {{pressure}} hpa</li> 
+{{/with}}
+{{#with wind}}
+  <li>Wind speed: {{speed}} km/h</li>
+{{/with}}
+{{#with sys}}
+  <li>Sunrise at: {{time sunrise}}</li>
+  <li>Sunset at: {{time sunset}}</li>
+{{/with}}

@@ -79,11 +79,8 @@ jQuery(document).ready(function($) {
     });
   }); // end typehead:selected event
 
-  // empty input elem on click for another search
+  // reset input on click
   $search.on('click', function() {
     $search.val('');
   });
 }); // end ready
-
-// Problem:
-  // Every new search adds cards instead of replacing the old ones

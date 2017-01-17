@@ -37,7 +37,6 @@ jQuery(document).ready(function($) {
       return icon;
     };
 
-    // display time helper
     Handlebars.registerHelper('time', function(timestamp) {
       timestamp = Handlebars.Utils.escapeExpression(timestamp);
       var result = timeConverter(timestamp);
@@ -65,11 +64,9 @@ jQuery(document).ready(function($) {
       dataType: 'json',
       data: openWeatherOptions,
       success: function(data) {
-        console.log(data);
-        var template = $('[type="text/x-handlebars-template"]').html(),
-            templateFunction = Handlebars.compile(template),
-            htmlContent = templateFunction(data);
-
+        var template = Handlebars.templates['display_weather'],
+            htmlContent = template(data);
+            
         $('ul.list').html(htmlContent); 
       },
       error: function(jqxhr, textStatus, error) {

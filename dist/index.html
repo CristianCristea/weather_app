@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.min.css">
+  </head>
+  <body>
+    <div class="page-wrap">
+      <header>
+        <h1 id="home">Weather app</h1>
+      </header>
+
+      <main>
+        <div id="the-basics">
+          <input type="search" id="search" class="typeahead" placeholder="Enter location" autofocus><br>
+        </div>
+        <section id="results" class="results"><ul class="list"></ul></section>
+      </main>
+    </div> <!-- ./page-wrap -->
+
+    <footer class="site-footer">
+      <p><a href="http://openweathermap.org/">OpenWeatherMap API</a></p>
+    </footer>
+    <script src="vendor/jquery-1.11.3.js"></script>
+    <script src="vendor/typeahead.jquery.min.js"></script>
+    <script src="vendor/handlebars.runtime-v4.0.5.js"></script>
+    <script src="js/templates/display_weather.js"></script>
+    <script src="js/scripts.min.js"></script>
+  </body>
+</html>

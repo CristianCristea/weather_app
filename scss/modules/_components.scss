@@ -39,7 +39,11 @@
 .typeahead.tt-input {
   border: 0;
   color: $white;
-  font-size: 2.6em;
+  font-size: 1.8em;
+
+  @media screen and (min-width: $tablet-large) {
+    font-size: 2.2em;
+  }
 }
 
 .typeahead.tt-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */

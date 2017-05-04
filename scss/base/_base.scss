@@ -9,7 +9,7 @@
 body {
   text-align: center;
   max-height: 100vh;
-  background: url('../img/back_sun.jpg');
+  background: url('../img/back_sun.jpg') no-repeat center center;
 
   // quick and messy radial gradient - TODO - add autoprefixer to gulp, create mixin or import compass
   // background: rgba(241,231,103,1);

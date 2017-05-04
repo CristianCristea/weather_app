@@ -67,11 +67,14 @@ jQuery(document).ready(function($) {
         var template = Handlebars.templates['display_weather'],
             htmlContent = template(data);
             
-        $('ul.list').html(htmlContent); 
+        $('ul.list').html(htmlContent);
       },
       error: function(jqxhr, textStatus, error) {
         var err = textStatus + ", " + error;
         console.log( "Request Failed: " + err );
+      },
+      always: function() {
+        $search.val('');
       }
     });
   }); // end typehead:selected event
@@ -79,6 +82,7 @@ jQuery(document).ready(function($) {
   // reset input on click
   $search.on('click', function() {
     $search.val('');
+    $('ul.list').empty();
   });
 
   // refresh page on click
@@ -87,3 +91,12 @@ jQuery(document).ready(function($) {
     location.reload();
   });
 }); // end ready
+
+
+
+
+// add current location btn
+
+// get location coords
+// make ajax call to api.openweathermap.org/data/2.5/weather?lat=35&lon=139
+// display results

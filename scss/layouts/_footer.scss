@@ -7,22 +7,16 @@ footer {
   
   a {
     @extend %base_heading;
-    font-size: 1.6em;
+    font-size: .8em;
     text-decoration: none;
     font-weight: $font-weight-normal;
-
-    color: $pacific_blue;
-
-    &:hover{
-      color: $white;
-    }
+    color: $white;
   }
 }
 
 // ==========================================================================
 // Sticky footer - https://css-tricks.com
 // ==========================================================================
-
 * {
   margin: 0;
 }
@@ -32,12 +26,12 @@ html, body {
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -142px; 
+  margin-bottom: -40px; 
 }
 .page-wrap:after {
   content: "";
   display: block;
 }
 .site-footer, .page-wrap:after {
-  height: 142px; 
+  height: 40px; 
 }

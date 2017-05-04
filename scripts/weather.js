@@ -68,13 +68,11 @@ jQuery(document).ready(function($) {
             htmlContent = template(data);
             
         $('ul.list').html(htmlContent);
+        $search.val('');
       },
       error: function(jqxhr, textStatus, error) {
         var err = textStatus + ", " + error;
         console.log( "Request Failed: " + err );
-      },
-      always: function() {
-        $search.val('');
       }
     });
   }); // end typehead:selected event

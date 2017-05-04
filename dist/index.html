@@ -9,12 +9,13 @@
   <body>
     <div class="page-wrap">
       <header>
-        <h1 id="home">Weather app</h1>
+        <a href="index.html" id="home"><h1 id="home">Weather app</h1></a>
       </header>
 
       <main>
         <div id="the-basics">
-          <input type="search" id="search" class="typeahead" placeholder="Enter location" autofocus><br>
+          <input type="search" autofocus id="search" class="typeahead" placeholder="Enter location" autofocus><br>
+          <button class="btn" id="currentLocation">Current location</button>
         </div>
         <section id="results" class="results"><ul class="list"></ul></section>
       </main>
@@ -22,6 +23,7 @@
 
     <footer class="site-footer">
       <p><a href="http://openweathermap.org/">OpenWeatherMap API</a></p>
+      <p><a href="http://cristiancristea.com">&copy; Cristian Cristea</a></p>
     </footer>
     <script src="vendor/jquery-1.11.3.js"></script>
     <script src="vendor/typeahead.jquery.min.js"></script>

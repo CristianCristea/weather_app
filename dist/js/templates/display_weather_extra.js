@@ -26,6 +26,14 @@ templates['display_weather'] = template({"1":function(container,depth0,helpers,p
   return "  <li>Wind speed: "
     + container.escapeExpression(((helper = (helper = helpers.speed || (depth0 != null ? depth0.speed : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"speed","hash":{},"data":data}) : helper)))
     + " km/h</li>\r\n";
+},"9":function(container,depth0,helpers,partials,data) {
+    var alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
+
+  return "  <li>Sunrise at: "
+    + alias3((helpers.time || (depth0 && depth0.time) || alias2).call(alias1,(depth0 != null ? depth0.sunrise : depth0),{"name":"time","hash":{},"data":data}))
+    + "</li>\r\n  <li>Sunset at: "
+    + alias3((helpers.time || (depth0 && depth0.time) || alias2).call(alias1,(depth0 != null ? depth0.sunset : depth0),{"name":"time","hash":{},"data":data}))
+    + "</li>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
@@ -38,6 +46,7 @@ templates['display_weather'] = template({"1":function(container,depth0,helpers,p
     + alias3((helpers.date || (depth0 && depth0.date) || alias2).call(alias1,(depth0 != null ? depth0.dt : depth0),{"name":"date","hash":{},"data":data}))
     + "</li>\r\n"
     + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.main : depth0),{"name":"with","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.wind : depth0),{"name":"with","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+    + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.wind : depth0),{"name":"with","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.sys : depth0),{"name":"with","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 })();

@@ -80,4 +80,10 @@ jQuery(document).ready(function($) {
   $search.on('click', function() {
     $search.val('');
   });
+
+  // refresh page on click
+  $('#home').on('click', function(e) {
+    e.preventDefault();
+    location.reload();
+  });
 }); // end ready

@@ -1,13 +1,17 @@
 // ==========================================================================
 // $Search bar - typeahed plugin
 // ==========================================================================
-input[type="search"] {
-  &:focus {
-    border: none;
-  outline: none;  
-  }
+#the-basics {
+  opacity: 0;
+  animation-name: appear;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
+.twitter-typeahead {
+    margin: 0 auto;
+}
 
 .typeahead,
 .tt-query,
@@ -22,15 +26,10 @@ input[type="search"] {
      -moz-border-radius: 8px;
           border-radius: 8px;
   outline: none;
-}
 
-.typeahead {
-  background-color: #fff;
+  // border: 2px solid #fff ;
+  color: #fff;
 }
-
-// .typeahead:focus {
-//   border: 2px solid #0097cf;
-// }
 
 .tt-query {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -97,7 +96,6 @@ input[type="search"] {
 // ==========================================================================
 // $List
 // ==========================================================================
-
 .list {
   @extend %list-text;
 
@@ -122,8 +120,8 @@ input[type="search"] {
       &:nth-child(#{$i}) {
         animation-name: appear;
         animation-duration: 300ms * $i;
-        timing-function: ease-in-out;
-        fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
       }
     }
 
@@ -160,7 +158,6 @@ input[type="search"] {
 // ==========================================================================
 // $Icons
 // ==========================================================================
-
 .weather-icon {
   margin-left: 20px;
   margin-top: 30px;
@@ -171,11 +168,10 @@ input[type="search"] {
 // ==========================================================================
 // $Animations
 // ==========================================================================
-
 @keyframes appear {
   0% { 
     opacity: 0; 
-    transform: rotateY(-90deg) translate(30px);
+    transform: rotateY(90deg) translate(30px);
   }
   100% { 
     opacity: 1; 

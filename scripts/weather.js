@@ -1,5 +1,11 @@
 jQuery(document).ready(function($) {
   var $search = $('#search');
+  var photos = {
+    'default': ['default1', 'default2', 'default3', 'default4', 'default5', 'default6', 'default7'],
+    'rain': ['rain1', 'rain2', 'rain3', 'rain4', 'rain5'],
+    'snow': ['snow1', 'snow2', 'snow3', 'snow4']
+  };
+  var weather_code;
 
   var timeConverter = function(UNIX_timestamp){
     var a = new Date(UNIX_timestamp * 1000);
@@ -26,6 +32,24 @@ jQuery(document).ready(function($) {
     var icon = '<img src="http://openweathermap.org/img/w/' + iconId + '.png" alt="' + description + '" class="weather-icon">';
 
     return icon;
+  };
+
+  var randomNumber = function(min , max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
+  var chooseBackgroundPhoto = function(code, photo_set) {
+    if (code >= 200 && code < 600) {
+      return photos.rain[randomNumber(0, photo_set.rain.length)];
+    } else if (code >= 600 && code < 700) {
+      return photos.snow[randomNumber(0, photo_set.snow.length)];
+    } else {
+      return photos.default[randomNumber(0, photo_set.default.length)];
+    }
+  };
+
+  var displayBackgroundPhoto = function() {
+    return $('body').css('background', 'url(../img/' + chooseBackgroundPhoto(weather_code, photos) + '.jpg)');
   };
 
   Handlebars.registerHelper('time', function(timestamp) {
@@ -59,10 +83,11 @@ jQuery(document).ready(function($) {
     var displayData = function(data) {
       var template = Handlebars.templates['display_weather'],
           htmlContent = template(data);
-          
       $('ul.list').html(htmlContent);
+      displayBackgroundPhoto(weather_code, photos);
     };
 
+  // select location event
   $search.on('typeahead:selected', function(event, selection) {
     var cityName = selection;
     var openWeatherAPI = 'http://api.openweathermap.org/data/2.5/weather?appid=68d06ff44fb97dc7a6ea98b54f8374ba&callback=';
@@ -79,6 +104,8 @@ jQuery(document).ready(function($) {
         displayData(data);
         // reset input val after every search
         $search.val('');
+        weather_code = data.weather[0].id;
+        console.log(weather_code);
       },
       error: displayError
     });
@@ -96,6 +123,7 @@ jQuery(document).ready(function($) {
     location.reload();
   });
 
+  // current location click event
   $('#currentLocation').on('click', function(e) {
     // check if geolocation is available
     if ('geolocation' in navigator) {
@@ -111,7 +139,13 @@ jQuery(document).ready(function($) {
         $.ajax(openWeatherAPI, {
         dataType: 'json',
         data: openWeatherOptions,
-        success: displayData,
+        success: function(data) {
+        displayData(data);
+        // reset input val after every search
+        $search.val('');
+        weather_code = data.weather[0].id;
+        console.log(weather_code);
+      },
         error: displayError
         });
       });
@@ -120,14 +154,3 @@ jQuery(document).ready(function($) {
     }
   });
 }); // end ready
-
-
-// TODO
-// change background to correspond with the wheater
-// https://openweathermap.org/weather-conditions has all the wheater codes
-// json response wheather id - represents the weather condition
-// write function to change the background image depending on the weather.id code
-// extra add more images for each wheater condition
-  // add the file names to an array
-  // write a random function(a,b)
-  // pick a random image every time - array_of_names[random_function]

@@ -6,3 +6,28 @@
   padding-top: 50px;
   z-index: 100;
 }
+
+// ==========================================================================
+// basics
+// ==========================================================================
+
+#the-basics {
+  width: 100%;
+
+  @media screen and (min-width: $tablet-large) {
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    @media screen and (min-width: $screen-small) {
+      width: 50%;
+    }
+
+    @media screen and (min-width: $screen-large) {
+      width: 40%;
+    }
+
+    .twitter-typeahead {
+      width: 100%;
+    }
+}

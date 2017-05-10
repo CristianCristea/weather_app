@@ -125,6 +125,8 @@ jQuery(document).ready(function($) {
 
   // current location click event
   $('#currentLocation').on('click', function(e) {
+    e.preventDefault();
+    alert("Current location functionality disabled for the moment.");
     // check if geolocation is available
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(function(pos) {

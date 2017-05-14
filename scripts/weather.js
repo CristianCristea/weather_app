@@ -49,7 +49,7 @@ jQuery(document).ready(function($) {
   };
 
   var displayBackgroundPhoto = function() {
-    return $('body').css('background', 'url(img/' + chooseBackgroundPhoto(weather_code, photos) + '.jpg)');
+    return $('body').css('background', 'rgba(0, 0, 0, .8) url(img/' + chooseBackgroundPhoto(weather_code, photos) + '.jpg)');
   };
 
   Handlebars.registerHelper('time', function(timestamp) {

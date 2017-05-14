@@ -126,33 +126,32 @@ jQuery(document).ready(function($) {
   // current location click event
   $('#currentLocation').on('click', function(e) {
     e.preventDefault();
-    alert("Current location functionality disabled for the moment.");
-    // check if geolocation is available
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(function(pos) {
-        var coordonates = pos.coords;
-        var openWeatherAPI = 'http://api.openweathermap.org/data/2.5/weather?appid=68d06ff44fb97dc7a6ea98b54f8374ba';
+    // alert("Current location functionality disabled for the moment.");
+
+    var openWeatherAPI = 'http://api.openweathermap.org/data/2.5/weather?appid=68d06ff44fb97dc7a6ea98b54f8374ba';
+    $.ajax("http://ipinfo.io/json", {
+      success: function(data) {
+
         var openWeatherOptions = {
-          lat: coordonates.latitude,
-          lon: coordonates.longitude,
+          q: data.city,
           units : 'metric'
         };
 
         $.ajax(openWeatherAPI, {
-        dataType: 'json',
-        data: openWeatherOptions,
-        success: function(data) {
-        displayData(data);
-        // reset input val after every search
-        $search.val('');
-        weather_code = data.weather[0].id;
-        console.log(weather_code);
-      },
-        error: displayError
+          dataType: 'json',
+          data: openWeatherOptions,
+          success: function(data) {
+            displayData(data);
+            // reset input val after every search
+            $search.val('');
+            weather_code = data.weather[0].id;
+          },
+          error: function(error) {
+            console.dir(error);
+          }
         });
-      });
-    } else {
-      alert('Location not available, please upgrade your browser');
-    }
-  });
+      }
+    });
+      
+  }); // end click event
 }); // end ready

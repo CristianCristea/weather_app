@@ -101,14 +101,13 @@ jQuery(document).ready(function($) {
     src = Handlebars.Utils.escapeExpression(src);
     alt = Handlebars.Utils.escapeExpression(alt);
     var result =
-      '<img src="https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/w/' +
+      '<img src="http://openweathermap.org/img/w/' +
       src +
       '.png" alt="' +
       alt +
       '" class="weather-icon">';
 
     return new Handlebars.SafeString(result);
-    // <img src="{{weather[0].icon}}.png" alt="{{weather[0].description}}" class="weather-icon">
   });
 
   var displayError = function(jqxhr, textStatus, error) {

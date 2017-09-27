@@ -101,7 +101,7 @@ jQuery(document).ready(function($) {
     src = Handlebars.Utils.escapeExpression(src);
     alt = Handlebars.Utils.escapeExpression(alt);
     var result =
-      '<img src="http://openweathermap.org/img/w/' +
+      '<img src="https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/w/' +
       src +
       '.png" alt="' +
       alt +
@@ -167,7 +167,7 @@ jQuery(document).ready(function($) {
 
     var openWeatherAPI =
       "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?appid=68d06ff44fb97dc7a6ea98b54f8374ba";
-    $.ajax("http://ipinfo.io/json", {
+    $.ajax("https://ipinfo.io/json", {
       success: function(data) {
         var openWeatherOptions = {
           q: data.city,
